@@ -26,3 +26,14 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
+
+
+// Keep a clean fallback for icons that are not available from the icon CDN.
+document.querySelectorAll('.software-icon img').forEach((img) => {
+  img.addEventListener('error', () => {
+    const box = img.closest('.software-icon');
+    if (!box) return;
+    box.classList.add('fallback');
+    box.dataset.fallback = img.dataset.fallback || img.alt.replace(/ icon$/i, '').slice(0, 4);
+  });
+});
