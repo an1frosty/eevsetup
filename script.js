@@ -1,5 +1,32 @@
-const items = document.querySelectorAll('.software-card, .hero-copy, .console, .download > *, .section-title');
+const PASSWORD = '2323';
+const AUTH_KEY = 'eevsetup_auth';
 
+const gate = document.getElementById('login-gate');
+const form = document.getElementById('login-form');
+const input = document.getElementById('password-input');
+const error = document.getElementById('login-error');
+
+function unlock() {
+  document.body.classList.remove('locked');
+  document.body.classList.add('authenticated');
+  gate.remove();
+}
+
+if (sessionStorage.getItem(AUTH_KEY) === '1') unlock();
+
+form?.addEventListener('submit', (event) => {
+  event.preventDefault();
+  if (input.value === PASSWORD) {
+    sessionStorage.setItem(AUTH_KEY, '1');
+    unlock();
+  } else {
+    error.textContent = 'INCORRECT PASSWORD';
+    input.value = '';
+    input.focus();
+  }
+});
+
+const items = document.querySelectorAll('.software-card, .hero-copy, .console, .download > *, .section-title');
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -17,7 +44,6 @@ items.forEach((item, index) => {
   observer.observe(item);
 });
 
-// Keep anchor navigation feeling smooth even when opened from another page state.
 document.querySelectorAll('a[href^="#"]').forEach((link) => {
   link.addEventListener('click', (event) => {
     const target = document.querySelector(link.getAttribute('href'));
@@ -27,8 +53,6 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
-
-// Keep a clean fallback for icons that are not available from the icon CDN.
 document.querySelectorAll('.software-icon img').forEach((img) => {
   img.addEventListener('error', () => {
     const box = img.closest('.software-icon');

@@ -14,3 +14,13 @@ footer{border-top:1px solid #142119;padding:28px 3vw;display:flex;justify-conten
 @media(max-width:560px){header{padding:0 20px}.hero{padding:120px 20px 50px}.hero h1{font-size:19vw}.console-top{grid-template-columns:1fr 65px 1fr}.led{font-size:20px}.face{font-size:24px}.grid{gap:3px}.grid span,.grid .label{height:20px}.grid .label{font-size:5px}.software-grid{grid-template-columns:1fr}.software-section{padding:75px 20px}.download{padding:90px 20px}footer{flex-direction:column}.top-download{display:none}}
 
 .software-icon{position:relative}.software-icon.fallback:after{content:attr(data-fallback);font:600 11px 'IBM Plex Mono',monospace;color:var(--accent);letter-spacing:.08em}.software-icon.fallback img{display:none}
+
+/* Private access gate */
+body.locked > *:not(#login-gate) { visibility: hidden; }
+body.authenticated > *:not(#login-gate) { visibility: visible; }
+.login-gate{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;padding:24px;background:#050706;}
+.login-box{width:min(430px,100%);border:1px solid var(--accent);background:#080c09;padding:34px;box-shadow:0 0 0 7px #0c2415,0 0 80px rgba(57,255,136,.12);}
+.login-mark{font:700 27px 'Space Grotesk';letter-spacing:-.06em;margin-bottom:42px}.login-mark span{color:var(--accent)}
+.login-label{font-size:9px;letter-spacing:.22em;color:var(--accent);margin-bottom:12px}.login-box h2{font:700 34px/1 'Space Grotesk';margin:0 0 12px;letter-spacing:-.04em}.login-box p{font-size:10px;line-height:1.7;color:#7d8981;margin:0 0 25px}
+#login-form{display:flex;gap:8px}#password-input{min-width:0;flex:1;background:#050806;border:1px solid #274733;color:var(--white);padding:14px;font:10px 'IBM Plex Mono';letter-spacing:.16em;outline:none}#password-input:focus{border-color:var(--accent);box-shadow:0 0 16px rgba(57,255,136,.1)}#login-form button{border:1px solid var(--accent);background:transparent;color:var(--accent);padding:0 18px;font:10px 'IBM Plex Mono';letter-spacing:.12em;cursor:pointer}#login-form button:hover{background:var(--accent);color:#050505}.login-error{min-height:16px;margin-top:12px;color:#ff6b6b;font-size:9px;letter-spacing:.08em}
+@media(max-width:560px){.login-box{padding:26px}#login-form{flex-direction:column}#login-form button{height:44px}}

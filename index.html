@@ -3,10 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow,noarchive">
 <title>EEVsetup+ — Personal Toolkit</title>
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="locked">
+<div id="login-gate" class="login-gate" aria-modal="true" role="dialog">
+  <div class="login-box">
+    <div class="login-mark">EEV<span>setup+</span></div>
+    <div class="login-label">PRIVATE ACCESS</div>
+    <h2>ENTER PASSWORD</h2>
+    <p>Private personal toolkit. Access by direct link only.</p>
+    <form id="login-form" autocomplete="off">
+      <input id="password-input" type="password" inputmode="numeric" maxlength="32" placeholder="PASSWORD" aria-label="Password" autofocus>
+      <button type="submit">ENTER</button>
+    </form>
+    <div id="login-error" class="login-error" aria-live="polite"></div>
+  </div>
+</div>
 <div class="grain"></div>
 
 <header>
@@ -90,8 +104,7 @@
 <section id="network" class="software-section">
   <div class="section-title"><span>NETWORK</span><b>05 / 06</b></div>
   <div class="software-grid">
-    <a class="software-card" href="https://www.wireshark.org/" target="_blank" rel="noopener"><div class="software-icon"><img src="https://cdn.simpleicons.org/wireshark" alt="WIRESHARK icon" loading="lazy"></div><div class="num">01</div><div><h3>WIRESHARK <small>↗</small></h3><p>Network protocol analyzer</p></div></a>
-    <a class="software-card" href="https://www.sordum.org/9192/dns-jumper-v2-3/" target="_blank" rel="noopener"><div class="software-icon"><img src="https://cdn.simpleicons.org/cloudflare" alt="DNS JUMPER icon" data-fallback="DNS" loading="lazy"></div><div class="num">02</div><div><h3>DNS JUMPER <small>↗</small></h3><p>DNS switching utility</p></div></a>
+    <a class="software-card" href="https://dnsjumper.net/" target="_blank" rel="noopener"><div class="software-icon"><img src="https://cdn.simpleicons.org/cloudflare" alt="DNS JUMPER icon" data-fallback="DNS" loading="lazy"></div><div class="num">01</div><div><h3>DNS JUMPER <small>↗</small></h3><p>DNS switching utility</p></div></a>
   </div>
 </section>
 
