@@ -45,3 +45,46 @@ body.authenticated > *:not(#login-gate) { visibility: visible; }
 .card-btn{padding:8px 10px;font-size:8px}
 .download{min-height:55vh;padding-top:88px;padding-bottom:88px}
 @media(max-width:560px){.software-section{padding-top:54px;padding-bottom:58px}.software-card{min-height:170px;padding:14px}.hero{min-height:auto;padding-bottom:38px}}
+
+
+/* EEVsetup+ compact clickable-card finish */
+a.software-card {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  min-height: 168px;
+  padding: 14px;
+  gap: 9px;
+}
+a.software-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.software-card .software-icon {
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+}
+.software-card .software-icon img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  display: block;
+  filter: none;
+}
+.software-card:hover .software-icon img {
+  filter: none;
+}
+.software-card h3 small {
+  opacity: .85;
+}
+.software-section {
+  padding-top: 42px;
+  padding-bottom: 42px;
+}
+.section-title {
+  margin-bottom: 20px;
+}
+.software-grid {
+  gap: 10px;
+}
