@@ -61,12 +61,3 @@ document.querySelectorAll('.software-icon img').forEach((img) => {
     box.dataset.fallback = img.dataset.fallback || img.alt.replace(/ icon$/i, '').slice(0, 4);
   });
 });
-
-
-// Keep unavailable remote favicons from displaying broken-image glyphs.
-document.querySelectorAll('.software-icon img').forEach((img) => {
-  img.addEventListener('error', () => {
-    img.style.visibility = 'hidden';
-    img.parentElement.classList.add('icon-unavailable');
-  }, { once: true });
-});
