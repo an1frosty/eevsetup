@@ -28,6 +28,7 @@ const games=document.getElementById('games');
 const empty=document.getElementById('empty');
 const statusEl=document.getElementById('status');
 const buttons=document.querySelectorAll('.currency button');
+const API_BASE='https://YOUR-WORKER-NAME.YOUR-SUBDOMAIN.workers.dev'; // Replace with your deployed Cloudflare Worker URL
 let cc='ru';
 let symbol='₽';
 let timer=null;
@@ -62,7 +63,7 @@ async function searchSteam(term){
   statusEl.innerHTML='<span class="spinner"></span>Ищу игры в Steam...';
   empty.style.display='none'; games.innerHTML='';
   try{
-    const url=`https://store.steampowered.com/api/storesearch/?term=${encodeURIComponent(term)}&cc=${cc}&l=russian&start=0&count=12`;
+    const url=`${API_BASE}/api/search?term=${encodeURIComponent(term)}&cc=${cc}`;
     const res=await fetch(url,{signal:controller.signal,cache:'no-store'});
     if(!res.ok) throw new Error('Steam ответил ошибкой '+res.status);
     const data=await res.json();
@@ -70,9 +71,9 @@ async function searchSteam(term){
     if(!items.length){statusEl.textContent='Steam не нашёл игры по этому запросу.';render([]);return;}
     const detailed=await Promise.all(items.slice(0,12).map(async item=>{
       try{
-        const r=await fetch(`https://store.steampowered.com/api/appdetails?appids=${item.id}&cc=${cc}&l=russian`,{cache:'no-store'});
+        const r=await fetch(`${API_BASE}/api/details?appid=${item.id}&cc=${cc}`,{cache:'no-store'});
         const d=await r.json();
-        const info=d[item.id]?.data||{};
+        const info=d.data||{};
         return {...item,...info,steam_appid:item.id};
       }catch{return {...item,steam_appid:item.id};}
     }));
@@ -81,7 +82,7 @@ async function searchSteam(term){
   }catch(e){
     if(e.name==='AbortError') return;
     console.error(e);
-    statusEl.textContent='Не удалось получить данные Steam. Если сайт открыт через GitHub Pages, проверь доступ к Steam Store/API или попробуй позже.';
+    statusEl.textContent='Не удалось получить данные. Проверь, что Cloudflare Worker опубликован и его URL указан в steam.html.';
     render([]);
   }
 }
