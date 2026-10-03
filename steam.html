@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>STEAM DEALS — WINSETUP</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#06111f;color:#eaf6ff;min-height:100vh}body:before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 15% 10%,rgba(0,132,255,.18),transparent 30%),radial-gradient(circle at 85% 20%,rgba(0,191,255,.1),transparent 28%);pointer-events:none}.wrap{max-width:1180px;margin:auto;padding:28px 22px 70px;position:relative}.top{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:55px}.logo{font-weight:900;letter-spacing:-1px;font-size:26px;color:#fff;text-decoration:none}.logo span{color:#2e9bff}.back{padding:11px 16px;border:1px solid #1e69a9;border-radius:10px;color:#a9d9ff;text-decoration:none;background:#0a1c2e}.hero{padding:48px 0 35px}.eyebrow{font-size:12px;letter-spacing:3px;color:#48aaff;font-weight:700}.hero h1{font-size:clamp(45px,8vw,88px);line-height:.9;margin:15px 0}.hero p{color:#8eacc4;font-size:17px;max-width:650px}.tools{display:flex;gap:12px;flex-wrap:wrap;margin:32px 0}.search{flex:1 1 420px;min-width:240px;padding:16px 18px;border:1px solid #184c78;border-radius:12px;background:#091a2b;color:#fff;font-size:16px;outline:none}.search:focus{border-color:#279dff;box-shadow:0 0 0 3px rgba(39,157,255,.12)}.currency{display:flex;padding:4px;border-radius:12px;background:#091a2b;border:1px solid #184c78}.currency button{border:0;background:transparent;color:#7190a9;padding:0 18px;border-radius:9px;font-weight:800;cursor:pointer}.currency button.active{background:#137fe0;color:white}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.card{display:block;text-decoration:none;color:inherit;background:linear-gradient(145deg,#0b2035,#071727);border:1px solid #123d60;border-radius:16px;padding:22px;transition:.2s}.card:hover{transform:translateY(-3px);border-color:#258fdf;box-shadow:0 14px 35px rgba(0,117,255,.12)}.cover{height:115px;border-radius:11px;background:linear-gradient(135deg,#12385a,#0c73c9);display:flex;align-items:flex-end;padding:15px;font-weight:900;font-size:21px;margin-bottom:17px}.meta{display:flex;justify-content:space-between;align-items:center;gap:10px}.discount{color:#55e69a;font-weight:900;font-size:18px}.price{font-size:22px;font-weight:900}.old{text-decoration:line-through;color:#5f788d;font-size:13px;margin-right:7px}.sub{color:#708da4;font-size:13px;margin-top:8px}.empty{display:none;color:#7996ac;text-align:center;padding:35px}.note{margin-top:28px;color:#607f98;font-size:12px}.card.hidden{display:none}@media(max-width:650px){.top{margin-bottom:30px}.hero{padding-top:20px}.currency{width:100%;height:52px}.currency button{flex:1}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="logo" href="index.html">WIN<span>SETUP</span></a><a class="back" href="index.html">← НА ГЛАВНУЮ</a></header>
+<section class="hero">
+<div class="eyebrow">STEAM PRICE TRACKER</div>
+<h1>STEAM<br><span style="color:#279dff">DEALS</span></h1>
+<p>Скидки на интересующие игры Steam. Выбирай валюту — рубли или тенге.</p>
+<div class="tools"><input id="search" class="search" placeholder="🔎  Поиск игры..." autocomplete="off"><div class="currency"><button class="active" data-currency="rub">₽ RUB</button><button data-currency="kzt">₸ KZT</button></div></div>
+</section>
+<section class="grid" id="games">
+<a class="card" href="https://store.steampowered.com/" target="_blank" rel="noopener" data-name="cyberpunk 2077"><div class="cover">CYBERPUNK 2077</div><div class="meta"><span class="discount">-60%</span><span class="price" data-rub="2399" data-kzt="14500">2 399 ₽</span></div><div class="sub"><span class="old" data-rub="5999" data-kzt="36000">5 999 ₽</span> Steam</div></a>
+<a class="card" href="https://store.steampowered.com/" target="_blank" rel="noopener" data-name="red dead redemption 2 rdr2"><div class="cover">RED DEAD REDEMPTION 2</div><div class="meta"><span class="discount">-67%</span><span class="price" data-rub="989" data-kzt="5990">989 ₽</span></div><div class="sub"><span class="old" data-rub="2999" data-kzt="18000">2 999 ₽</span> Steam</div></a>
+<a class="card" href="https://store.steampowered.com/" target="_blank" rel="noopener" data-name="hogwarts legacy"><div class="cover">HOGWARTS LEGACY</div><div class="meta"><span class="discount">-75%</span><span class="price" data-rub="1249" data-kzt="7490">1 249 ₽</span></div><div class="sub"><span class="old" data-rub="4999" data-kzt="29900">4 999 ₽</span> Steam</div></a>
+<a class="card" href="https://store.steampowered.com/" target="_blank" rel="noopener" data-name="grand theft auto v gta 5 gta5"><div class="cover">GRAND THEFT AUTO V</div><div class="meta"><span class="discount">-50%</span><span class="price" data-rub="749" data-kzt="4490">749 ₽</span></div><div class="sub"><span class="old" data-rub="1499" data-kzt="8990">1 499 ₽</span> Steam</div></a>
+</section>
+<div class="empty" id="empty">Ничего не найдено.</div>
+<p class="note">Цены на этой странице — демонстрационные. Реальные цены Steam можно подключить отдельным этапом.</p>
+</div>
+<script>
+const buttons=document.querySelectorAll('.currency button');const prices=document.querySelectorAll('[data-rub]');const search=document.getElementById('search');const cards=document.querySelectorAll('.card');const empty=document.getElementById('empty');let currency='rub';
+function format(n){return new Intl.NumberFormat(currency==='rub'?'ru-RU':'kk-KZ').format(Number(n))+' '+(currency==='rub'?'₽':'₸')}
+function update(){prices.forEach(el=>el.textContent=format(el.dataset[currency]));let q=search.value.trim().toLowerCase(),shown=0;cards.forEach(c=>{let ok=c.dataset.name.includes(q);c.classList.toggle('hidden',!ok);if(ok)shown++});empty.style.display=shown?'none':'block'}
+buttons.forEach(b=>b.onclick=()=>{buttons.forEach(x=>x.classList.remove('active'));b.classList.add('active');currency=b.dataset.currency;update()});search.addEventListener('input',update);
+</script>
+</body>
+</html>
